@@ -5,27 +5,17 @@ import java.util.*;
 //Driver class
 public class Main {
 
-	public static int take_choice()
-	{
-		int choice=0;
-		Scanner input=new Scanner(System.in);
-		do {
-			try {
-				choice=input.nextInt(); 
-				if(choice<1 || choice>4)
-					throw new Exception();
-			}
-			catch(Exception e)
-			{
-				Display.Invalid_prompt();
-				input=new Scanner(System.in);
-			}
-		}while(choice<1 || choice>4);
-		return choice;
-	}
 	
-	public static void take_passenger_data()
+	
+	public static void take_passenger_data(Passenger P)
 	{
+		//Calling function of Display class
+		Display.Display_operation(P.getChoice());
+		Display.Input_Name_prompt(P);
+		Display.Input_Address_prompt(P);
+		Display.Input_Age_prompt(P);
+		Display.Input_Gender_prompt(P);
+		Display.Input_passportno_prompt(P);
 		
 	}
 	public static void main(String[] args) {
@@ -33,7 +23,9 @@ public class Main {
 		Display d=new Display();
 		d.Greetings();
 		d.Flight_Menu();
-		Passenger P1=new Passenger(Main.take_choice());
+		Passenger P1=new Passenger(Display.take_choice());
+		take_passenger_data(P1);
+		P1.display();
 	}
 
 }
