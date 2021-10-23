@@ -30,9 +30,7 @@ public class Main {
 		//Display.Input_Flight(R.flight);
 		Airline al=new Airline();
 		al.create_schedule();
-		al.flight_sch.get(0).display();
-		al.flight_sch.get(5).display();
-	
+		al.view_FlightSchedule();
 	}
 	
 }

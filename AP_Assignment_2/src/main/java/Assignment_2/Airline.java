@@ -5,19 +5,41 @@ import java.util.*;
 
 public class Airline {
 	String Name;
-	static List<Flight_Schedule> flight_sch;
+	static list<String> flight_sch;//LinkedList to store Flight details
 	
 	Airline()
 	{
-		flight_sch=new LinkedList<Flight_Schedule>();
+		//creating flight schedule linked list
+		flight_sch=new list<String>();
 	}
 	
 	void create_schedule() {
-	try {
-		Flight_Schedule.create_sch(flight_sch);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		//storing data in linked list after reading file
+			FileReader FS_in=null;
+			try {
+				FS_in=new FileReader("C:\\Users\\umarm\\git\\repository3\\AP_Assignment_2\\src\\main\\resources\\Flights.txt");
+				BufferedReader br=new BufferedReader(FS_in);
+				String aLine=null;
+				aLine=br.readLine();//Ignoring the first line as it contains columns names
+				while((aLine=br.readLine())!=null )
+				{
+					flight_sch.add(aLine);//Adding in linked list
+				}
+				
+				//closing file at end
+				FS_in.close();
+			}
+			catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
-	}
+	void view_FlightSchedule()
+	{
+		//It will print All Flights data
+		for(int i=0;i<flight_sch.length();i++)
+		{
+			System.out.println(flight_sch.get(i));
+		}
+		}
 }

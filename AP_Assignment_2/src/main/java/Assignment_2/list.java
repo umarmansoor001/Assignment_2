@@ -120,7 +120,7 @@ class list<T> {
  
 //Method
 // To get node at any given position
-node<T> get(int position)
+T get(int position)
 {
 	node<T> temp=new node<T>(null);
 	temp=this.head;
@@ -137,7 +137,7 @@ node<T> get(int position)
 			return null;
 		}
 	}
-	return temp;
+	return temp.data;
 }
 
  

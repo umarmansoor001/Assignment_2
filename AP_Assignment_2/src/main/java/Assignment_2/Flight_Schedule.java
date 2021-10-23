@@ -6,6 +6,7 @@ import java.util.*;
 //Service layer
 
 public class Flight_Schedule {
+	public static String flight_code;
 	static String destination;
 	static String origin;
 	static float duration;
@@ -17,6 +18,7 @@ public class Flight_Schedule {
 	
 	Flight_Schedule()
 	{
+		flight_code="\0";
 		destination="\0";
 		origin="\0";
 		duration=0;
@@ -26,7 +28,7 @@ public class Flight_Schedule {
 		dep_time="\0";
 		plane_code="\0";
 	}
-	static void create_sch(List<Flight_Schedule> fs) throws Exception
+	static void create_sch(list<Flight_Schedule> fs) throws Exception
 	{
 		FileReader FS_in=null;
 		try {
@@ -35,13 +37,14 @@ public class Flight_Schedule {
 			String aLine=null;
 			aLine=br.readLine();//Ignoring the first line as it contains columns names
 			int i=0;
-			while((aLine=br.readLine())!=null)
+			while((aLine=br.readLine())!=null )
 			{
 				//System.out.println(aLine);
 				Flight_Schedule FS=new Flight_Schedule();
 				FS.make_sch(aLine);
-				//FS.display();
-				fs.add(i,FS);//Adding in linked list
+				FS.display();
+				fs.add(FS);//Adding in linked list
+				FS=null;
 				i++;
 			}
 			
@@ -59,23 +62,26 @@ public class Flight_Schedule {
 		//Splitting the string by delimiter ','
 		String[] words=flight_details.split(",");
 		//Assigning values to variables
-		this.destination=words[0];
-		this.origin=words[1];
-		this.dep_time=words[2];
-		this.day=words[3];
-		this.duration=Integer.parseInt(words[4]);//Converting string to float
-		this.date=Integer.parseInt(words[5]);
-		this.fare=Integer.parseInt(words[6]);
-		this.plane_code=words[7];
+		this.flight_code=words[0];
+		this.destination=words[1];
+		this.origin=words[2];
+		this.dep_time=words[3];
+		this.day=words[4];
+		this.duration=Integer.parseInt(words[5]);//Converting string to float
+		this.date=Integer.parseInt(words[6]);
+		this.fare=Integer.parseInt(words[7]);
+		this.plane_code=words[8];
 	}
 	void display()
 	{
-		System.out.println(this.destination);
-		System.out.println(this.origin);
-		System.out.println(this.dep_time);
-		System.out.println(duration);
-		System.out.println(fare);
-		System.out.println(plane_code);
-		System.out.println(date);
+		System.out.print(this.flight_code+" ");
+		System.out.print(this.destination+" ");
+		System.out.print(this.origin+" ");
+		System.out.print(this.dep_time+" ");
+		System.out.print(duration+" ");
+		System.out.print(fare+" ");
+		System.out.print(plane_code+" ");
+		System.out.print(date+" ");
+		System.out.println();
 	}
 }
