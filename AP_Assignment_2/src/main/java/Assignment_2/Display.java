@@ -26,7 +26,7 @@ public class Display  {
 		System.out.println("******** Invalid Input *******");
 		System.out.print("Again Enter:- ");
 	}
-	public static int take_choice() 
+	public static int take_choice(Airline AL) 
 	{
 		int choice=0;
 		Scanner input=new Scanner(System.in);
@@ -42,9 +42,10 @@ public class Display  {
 				input=new Scanner(System.in);
 			}
 		}while(choice<1 || choice>5);
+		Display_operation(choice,AL);
 		return choice;
 	}
-	static void Display_operation(int choice)
+	static void Display_operation(int choice,Airline AL)
 	{
 		if(choice==1)
 		{
@@ -60,9 +61,8 @@ public class Display  {
 			destination=input.nextLine();
 			System.out.print("Enter Departure Airport:- ");
 			origin=input.nextLine();
-
 			//Verifying if Flight available
-			
+			System.out.print(AL.check_flight(destination, origin));
 		}
 	}
 	static void Input_Name_prompt(Passenger P)

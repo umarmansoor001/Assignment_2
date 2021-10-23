@@ -9,6 +9,8 @@ public class Airline {
 	
 	Airline()
 	{
+		//Setting Airline name 
+		Name="NUCS";
 		//creating flight schedule linked list
 		flight_sch=new list<String>();
 	}
@@ -39,7 +41,26 @@ public class Airline {
 	
 	boolean check_flight(String des,String ori)
 	{
-		
+		//Splitting the string by delimiter ','
+		String[] words=null;
+		String a_flight="";
+		for(int i=0; i<this.flight_sch.length(); ++i)
+		{
+			try {
+				a_flight=this.flight_sch.get(i);
+				//Splitting the string by delimiter ',' 
+				words=a_flight.split(",");//And storing in words array
+				if(words[1]==des && words[2]==ori)
+					return true;
+				else
+					return false;
+			}
+			catch(Exception e)
+			{
+				System.out.println("Flight not set");
+			}
+		}
+		return false;
 	}
 	void view_FlightSchedule()
 	{
