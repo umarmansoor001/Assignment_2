@@ -4,16 +4,17 @@ import java.io.*;
 import java.util.*;
 
 public class Reservation {
+	private int no_of_passengers;
 	//Composition between Reservation and passenger
 	private final List<Passenger> passenger;//List built-in data structure of Passenger class objects
+	public final Flight flight;
 	
 	//Parameterized constructor
-	Reservation(List<Passenger> passenger)
+	Reservation()
 	{
-		this.passenger=passenger;
+		this.passenger = null;
+		this.flight=new Flight();
 	}
-	public static void Book_flight()
-	{
-		
-	}
+	
+	
 }

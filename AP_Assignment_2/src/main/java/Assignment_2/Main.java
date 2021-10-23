@@ -24,8 +24,15 @@ public class Main {
 		d.Greetings();
 		d.Flight_Menu();
 		Passenger P1=new Passenger(Display.take_choice());
-		take_passenger_data(P1);
-		P1.display();
+		//take_passenger_data(P1);
+		//P1.display();
+		//Reservation R=new Reservation();
+		//Display.Input_Flight(R.flight);
+		Airline al=new Airline();
+		al.create_schedule();
+		al.flight_sch.get(0).display();
+		al.flight_sch.get(5).display();
+	
 	}
-
+	
 }

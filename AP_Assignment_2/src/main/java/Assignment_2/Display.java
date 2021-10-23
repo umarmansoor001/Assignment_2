@@ -19,6 +19,7 @@ public class Display  {
 		System.out.println("Press 2\tTO Search for Flight Schedule");
 		System.out.println("Press 3\tTO Check My Bookings");
 		System.out.println("Press 4\tTO View Flight Schedules");
+		System.out.println("Press 5\tTO Exit");
 	}
 	static void Invalid_prompt()
 	{
@@ -32,7 +33,7 @@ public class Display  {
 		do {
 			try {
 				choice=input.nextInt(); 
-				if(choice<1 || choice>4)
+				if(choice<1 || choice>5)
 					throw new Exception();
 			}
 			catch(Exception e)
@@ -40,7 +41,7 @@ public class Display  {
 				Display.Invalid_prompt();
 				input=new Scanner(System.in);
 			}
-		}while(choice<1 || choice>4);
+		}while(choice<1 || choice>5);
 		return choice;
 	}
 	static void Display_operation(int choice)
@@ -87,7 +88,7 @@ public class Display  {
 	}
 	static void Input_Gender_prompt(Passenger P)
 	{
-		System.out.println("Choose an option:- \n"+"1. MALE"+"\t2.FEMALE"+"\t3.Other");
+		System.out.println("Choose An option:- \n"+"1. MALE \t"+"2. FEMALE"+"\t3. Other");
 		System.out.print("Enter your choice:- ");
 		Scanner input=new Scanner(System.in);
 		//P.set(input.nextInt());
@@ -130,5 +131,19 @@ public class Display  {
 			}
 		}while(p_no<100000000 || p_no>999999999);
 		P.setPassport_no(p_no);
+	}
+	//Flight info input
+	static void Input_Flight(Flight F)
+	{
+		//Destination
+		System.out.print("Enter Destination:- ");
+		Scanner input=new Scanner(System.in);
+		F.setDestination(input.nextLine());
+		//Origin
+		System.out.print("Enter Origin:- ");
+		F.setOrigin(input.nextLine());
+		//Date of Flight
+		System.out.print("Enter Date:- ");
+		F.setDate(input.nextShort());
 	}
 }

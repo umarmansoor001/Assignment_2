@@ -1,0 +1,7 @@
+Origin	Destination	Departure-Time	Day	Duration(hr)	Date	Fares	Plane_NO
+Islambad,Karachi,7:00 AM,Monday,2,25,15000,NS-300
+Islambad,Karachi,10:00 AM,Monday,2,25,14000,NS-306
+Islambad,Karachi,7:00 PM,Saturday,2,30,16000,NS-301
+Karachi,Islambad,2:00 PM,Friday,29,2,13000,NS-300
+Islambad,Lahore,5:00 AM,Tuesday,26,1,8000,NS-305
+Karachi,Lahore,5:00 PM,Wednesday,27,3,20000,NS-304

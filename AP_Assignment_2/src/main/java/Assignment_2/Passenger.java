@@ -9,6 +9,7 @@ public class Passenger {
 	private String Address;
 	private int passport_no;//9 digit number
 	
+	//Aggregation
 	
 	
 	//parameterized
