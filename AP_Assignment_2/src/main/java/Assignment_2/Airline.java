@@ -15,9 +15,11 @@ public class Airline {
 	
 	void create_schedule() {
 		//storing data in linked list after reading file
-			FileReader FS_in=null;
+			FileReader FS_in=null;//File Reader
 			try {
+				//giving file path
 				FS_in=new FileReader("C:\\Users\\umarm\\git\\repository3\\AP_Assignment_2\\src\\main\\resources\\Flights.txt");
+				//Reading through buffer
 				BufferedReader br=new BufferedReader(FS_in);
 				String aLine=null;
 				aLine=br.readLine();//Ignoring the first line as it contains columns names
@@ -33,6 +35,11 @@ public class Airline {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	}
+	
+	boolean check_flight(String des,String ori)
+	{
+		
 	}
 	void view_FlightSchedule()
 	{

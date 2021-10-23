@@ -51,7 +51,18 @@ public class Display  {
 			System.out.println("\t*************************************************");
 			System.out.println("\t***           B O O K   F L I G H T           ***");
 			System.out.println("\t*************************************************\n");
+			
+			//After that take destination and Origin
+			String origin="",destination="";
+			//Taking Destination and origin
+			Scanner input=new Scanner(System.in);
+			System.out.print("Enter Destination Airport:- ");
+			destination=input.nextLine();
+			System.out.print("Enter Departure Airport:- ");
+			origin=input.nextLine();
 
+			//Verifying if Flight available
+			
 		}
 	}
 	static void Input_Name_prompt(Passenger P)

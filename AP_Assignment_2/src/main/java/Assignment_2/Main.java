@@ -28,9 +28,10 @@ public class Main {
 		//P1.display();
 		//Reservation R=new Reservation();
 		//Display.Input_Flight(R.flight);
-		Airline al=new Airline();
-		al.create_schedule();
-		al.view_FlightSchedule();
+		Airline AL=new Airline();
+		AL.create_schedule();
+		AL.view_FlightSchedule();
+		
 	}
 	
 }
