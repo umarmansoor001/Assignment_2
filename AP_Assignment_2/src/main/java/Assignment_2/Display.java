@@ -76,13 +76,13 @@ public class Display  {
 		System.out.println("\t*************************************************");
 		System.out.println("\t***        Choose Your Desired Flight         ***");
 		System.out.println("\t*************************************************\n");
-		System.out.println("		Departure	Destination	Departure-Time	 Day	Duration  Date	Fare(Economy)");
+		System.out.println("		Departure Destination Departure-Time Day Duration Date Fare(Economy)");
 		String[] words=null;
 		for(int i=0; i<desired_flight.length(); ++i)
 		{
 			words=desired_flight.get(i).split(",");
 			System.out.print("Enter "+(i+1)+" For	");
-			System.out.println(words[1]+"\t "+words[2]+"\t "+words[3]+"\t"+words[4]+"    "+words[5]+"\t  "+words[6]+"	"+words[7]);
+			System.out.println(words[1]+"	 "+words[2]+"	"+words[3]+"	"+words[4]+"    "+words[5]+"	"+words[6]+"	"+words[7]);
 		}
 		System.out.print("Enter Your Choice:- ");
 		int choice=0;
