@@ -26,7 +26,7 @@ public class Display  {
 		System.out.println("******** Invalid Input *******");
 		System.out.print("Again Enter:- ");
 	}
-	public static int take_choice(Airline AL) 
+	public static int take_choice() 
 	{
 		int choice=0;
 		Scanner input=new Scanner(System.in);
@@ -42,28 +42,63 @@ public class Display  {
 				input=new Scanner(System.in);
 			}
 		}while(choice<1 || choice>5);
-		Display_operation(choice,AL);
+		Display_operation(choice);
 		return choice;
 	}
-	static void Display_operation(int choice,Airline AL)
+	static void Display_operation(int choice)
 	{
 		if(choice==1)
 		{
 			System.out.println("\t*************************************************");
 			System.out.println("\t***           B O O K   F L I G H T           ***");
 			System.out.println("\t*************************************************\n");
-			
-			//After that take destination and Origin
-			String origin="",destination="";
-			//Taking Destination and origin
-			Scanner input=new Scanner(System.in);
-			System.out.print("Enter Destination Airport:- ");
-			destination=input.nextLine();
-			System.out.print("Enter Departure Airport:- ");
-			origin=input.nextLine();
-			//Verifying if Flight available
-			System.out.print(AL.check_flight(destination, origin));
 		}
+			
+	}
+	//Take user destination
+	static String take_Destination()
+	{
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter Destination Airport:- ");
+		return (input.nextLine());
+	}
+	//Take user Departure 
+	static String take_Origin()
+	{
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter Departure Airport:- ");
+		return input.nextLine();
+	}
+	static int take_desiredflight(list<String> desired_flight)
+	{
+		System.out.println();
+		System.out.println("\t*************************************************");
+		System.out.println("\t***        Choose Your Desired Flight         ***");
+		System.out.println("\t*************************************************\n");
+		System.out.println("		Departure	Destination	Departure-Time	 Day	Duration  Date");
+		String[] words=null;
+		for(int i=0; i<desired_flight.length(); ++i)
+		{
+			words=desired_flight.get(i).split(",");
+			System.out.print("Enter "+(i+1)+" For	");
+			System.out.println(words[1]+"\t "+words[2]+"\t "+words[3]+"\t"+words[4]+"    "+words[5]+"\t  "+words[6]);
+		}
+		System.out.print("Enter Your Choice:- ");
+		int choice=0;
+		Scanner input=new Scanner(System.in);
+		do {
+			try {
+				choice=input.nextInt(); 
+				if(choice<1 || choice>desired_flight.length())
+					throw new Exception();
+			}
+			catch(Exception e)
+			{
+				Display.Invalid_prompt();
+				input=new Scanner(System.in);
+			}
+		}while(choice<1 || choice>desired_flight.length());
+		return choice;
 	}
 	static void Input_Name_prompt(Passenger P)
 	{

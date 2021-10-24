@@ -10,7 +10,7 @@ public class Reservation {
 	public final Flight flight;
 	
 	//Parameterized constructor
-	Reservation()
+	Reservation()	
 	{
 		this.passenger = null;
 		this.flight=new Flight();
