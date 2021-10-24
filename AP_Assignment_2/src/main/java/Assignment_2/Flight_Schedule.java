@@ -39,7 +39,7 @@ public class Flight_Schedule {
 	}
 	
 	//Check user entered destination and origin in flight schedule
-	boolean check_flight(String des,String ori)
+	boolean check_flight(String ori,String des)
 	{
 		//Splitting the string by delimiter ','
 		String[] words=null;//Parts of flights store in this string array

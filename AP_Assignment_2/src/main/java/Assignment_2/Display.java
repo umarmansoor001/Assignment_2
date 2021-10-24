@@ -3,6 +3,7 @@ package Assignment_2;
 import java.util.*;
 
 //Presentation layer / User Interface
+
 public class Display  {
 
 	static void Greetings()
@@ -75,13 +76,13 @@ public class Display  {
 		System.out.println("\t*************************************************");
 		System.out.println("\t***        Choose Your Desired Flight         ***");
 		System.out.println("\t*************************************************\n");
-		System.out.println("		Departure	Destination	Departure-Time	 Day	Duration  Date");
+		System.out.println("		Departure	Destination	Departure-Time	 Day	Duration  Date	Fare(Economy)");
 		String[] words=null;
 		for(int i=0; i<desired_flight.length(); ++i)
 		{
 			words=desired_flight.get(i).split(",");
 			System.out.print("Enter "+(i+1)+" For	");
-			System.out.println(words[1]+"\t "+words[2]+"\t "+words[3]+"\t"+words[4]+"    "+words[5]+"\t  "+words[6]);
+			System.out.println(words[1]+"\t "+words[2]+"\t "+words[3]+"\t"+words[4]+"    "+words[5]+"\t  "+words[6]+"	"+words[7]);
 		}
 		System.out.print("Enter Your Choice:- ");
 		int choice=0;
@@ -98,7 +99,16 @@ public class Display  {
 				input=new Scanner(System.in);
 			}
 		}while(choice<1 || choice>desired_flight.length());
+		
 		return choice;
+	}
+	static void take_planetype(String flight)
+	{
+		//Implement it later
+		final int Bussiness_class=5000;
+		String[] parts=flight.split(",");
+		System.out.print("For Bussiness Class : Fare = "+Integer.parseInt(parts[7])+Bussiness_class);//in 7th index fare is stored
+		System.out.print("Enter Your Choice:- ");
 	}
 	static void Input_Name_prompt(Passenger P)
 	{
@@ -178,18 +188,5 @@ public class Display  {
 		}while(p_no<100000000 || p_no>999999999);
 		P.setPassport_no(p_no);
 	}
-	//Flight info input
-	static void Input_Flight(Flight F)
-	{
-		//Destination
-		System.out.print("Enter Destination:- ");
-		Scanner input=new Scanner(System.in);
-		F.setDestination(input.nextLine());
-		//Origin
-		System.out.print("Enter Origin:- ");
-		F.setOrigin(input.nextLine());
-		//Date of Flight
-		System.out.print("Enter Date:- ");
-		F.setDate(input.nextShort());
-	}
+
 }

@@ -2,7 +2,7 @@ package Assignment_2;
 
 public class Passenger {
 
-	private static int choice;//Passenger's chosen number from menu will store in it.
+	//private static int choice;//Passenger's chosen number from menu will store in it.
 	private String Name;
 	private char Gender;
 	private int Age;
@@ -10,20 +10,24 @@ public class Passenger {
 	private int passport_no;//9 digit number
 	
 	//Aggregation
-	
+	private Flight passenger_flight;
 	
 	//parameterized
-	Passenger(int choice)
+	Passenger()
 	{
-		this.choice=choice;
+		passenger_flight=new Flight();
 	}
-	//Getter
-	public static int getChoice() {
-		return choice;
-	}
-	//Setter
-	public static void setChoice(int choice) {
-		Passenger.choice = choice;
+	void set_flight(String flight)
+	{
+		String[] parts=flight.split(",");
+		passenger_flight.setFlight_code(parts[0]);
+		passenger_flight.setOrigin(parts[1]);
+		passenger_flight.setDestination(parts[2]);
+		passenger_flight.setDeptime(parts[3]);
+		passenger_flight.setday(parts[4]);
+		passenger_flight.setDuration(Integer.parseInt(parts[5]));
+		passenger_flight.setDate(Integer.parseInt(parts[6]));
+		passenger_flight.setPlane_code(parts[8]);
 	}
 	//Setter
 	public void setName(String name) {
@@ -45,10 +49,13 @@ public class Passenger {
 	public void setPassport_no(int passportno) {
 		passport_no=passportno;
 	}
+	public Flight get_Pflight()
+	{
+		return passenger_flight;
+	}
 	public void display()
 	{
 		System.out.print("Name "+this.Name);
-		System.out.println("choice "+this.choice);
 		System.out.println("Gender "+this.Gender);
 		System.out.println("Age "+this.Age);
 		System.out.println("Address "+this.Address);
