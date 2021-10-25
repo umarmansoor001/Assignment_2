@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
 
 	
-	public static String booking_operation(Airline AL)
+	public static String booking_operation(Airline AL,Reservation R)
 	{
 		//After that take destination and Origin
 		String origin="",destination="";
@@ -23,7 +23,8 @@ public class Main {
 			//Now customer have to choose their desired flight
 			int choice=(Display.take_desiredflight(desired_Flights));
 			Choosen_flight=desired_Flights.get(choice-1);
-			
+			//Setting plane class for passenger
+			R.get_passenger().get_Pflight().setPlane_class(Display.take_planetype(Choosen_flight));
 			
 			//for(int i=0; i<desired_Flights.length(); ++i)
 				//System.out.println(desired_Flights.get(i));
@@ -31,7 +32,7 @@ public class Main {
 		else//If flight not found then again take destination and origin 
 		{
 			//Recursively call this function again 
-			booking_operation(AL);
+			booking_operation(AL,R);
 		}
 		return (Choosen_flight);
 	}
@@ -60,8 +61,12 @@ public class Main {
 		R.get_AL().get_FS().create_schedule();
 		Display.take_choice();
 		Passenger P=new Passenger();
-		P.set_flight(booking_operation(R.get_AL()));
-		P.get_Pflight().display();
+		P.set_flight(booking_operation(R.get_AL(),R));
+		take_passenger_data(P);
+		R.set_Passenger(P);
+		//Giving plane code from Flight class to Airplane class
+		
+		P.display();
 	}
 	
 }

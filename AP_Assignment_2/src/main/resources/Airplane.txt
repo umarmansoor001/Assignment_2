@@ -1,0 +1,6 @@
+Plane_code  Total_Seats  Availabe_seats  Economical_Seats  Bussiness_Seats  Firtsclass_Seats
+NS-300,60,60,40,10,10
+NS-301,100,50,30,20
+NS-304,300,300,200,60,40
+NS-305,100,100,50,30,20
+NS-306,80,80,50,15,15

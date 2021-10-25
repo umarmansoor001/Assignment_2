@@ -76,7 +76,7 @@ public class Display  {
 		System.out.println("\t*************************************************");
 		System.out.println("\t***        Choose Your Desired Flight         ***");
 		System.out.println("\t*************************************************\n");
-		System.out.println("		Departure Destination Departure-Time Day Duration Date Fare(Economy)");
+		System.out.println("		Departure Destination Departure-Time Day Date Duration(hr) Fare(Economy)");
 		String[] words=null;
 		for(int i=0; i<desired_flight.length(); ++i)
 		{
@@ -102,13 +102,31 @@ public class Display  {
 		
 		return choice;
 	}
-	static void take_planetype(String flight)
+	static int take_planetype(String flight)
 	{
-		//Implement it later
 		final int Bussiness_class=5000;
+		final int First_class=8000;
 		String[] parts=flight.split(",");
-		System.out.print("For Bussiness Class : Fare = "+Integer.parseInt(parts[7])+Bussiness_class);//in 7th index fare is stored
-		System.out.print("Enter Your Choice:- ");
+		System.out.println("Enter 1 For Economy Class   : Fare RS."+Integer.parseInt(parts[7]));//in 7th index fare is stored
+		System.out.println("Enter 2 For Bussiness Class : Fare RS."+Integer.parseInt(parts[7])+Bussiness_class);//in 7th index fare is stored
+		System.out.println("Enter 3 For First Class     : Fare RS."+Integer.parseInt(parts[7])+First_class);//in 7th index fare is stored
+		System.out.println("Enter Your Choice:- ");
+		int choice=0;
+		Scanner input=new Scanner(System.in);
+		do {
+			try {
+				choice=input.nextInt(); 
+				if(choice<1 || choice>3)
+					throw new Exception();
+			}
+			catch(Exception e)
+			{
+				Display.Invalid_prompt();
+				input=new Scanner(System.in);
+			}
+		}while(choice<1 || choice>3);
+		
+		return choice;
 	}
 	static void Input_Name_prompt(Passenger P)
 	{

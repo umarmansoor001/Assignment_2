@@ -2,7 +2,7 @@ package Assignment_2;
 
 public class Flight  {
 	
-	private char plane_class;
+	private String plane_class;
 	private String destination;
 	private String Origin;
 	private String dep_time;
@@ -14,8 +14,13 @@ public class Flight  {
 	//Aggregation
 	public Passenger passenger;
 	//Setter
-	public void setPlane_class(char pc) {
-		plane_class=pc;
+	public void setPlane_class(int choice) {
+		if(choice==1)
+			plane_class="Economy Class";//	No.# 1
+		else if(choice==2)
+			plane_class="Bussiness Class";//	No.# 2
+		else if(choice==3)
+			plane_class="First Class";	//No.# 3
 	}
 	public void setday(String day) {
 		this.day=day;
@@ -38,11 +43,14 @@ public class Flight  {
 	public void setPlane_code(String pc) {
 		plane_code=pc;
 	}
+	public String getPlane_code() {
+		return plane_code;
+	}
 	public void setDuration(int duration) {
 		this.duration=duration;
 	}
 	public void display()
 	{
-		System.out.println(destination+Origin+duration+date);
+		System.out.println(destination+" "+Origin+" "+duration+" "+date);
 	}
 }

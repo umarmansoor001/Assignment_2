@@ -2,7 +2,6 @@ package Assignment_2;
 
 public class Passenger {
 
-	//private static int choice;//Passenger's chosen number from menu will store in it.
 	private String Name;
 	private char Gender;
 	private int Age;
@@ -60,6 +59,7 @@ public class Passenger {
 		System.out.println("Age "+this.Age);
 		System.out.println("Address "+this.Address);
 		System.out.println("Passport "+this.passport_no);
+		this.passenger_flight.display();
 	}
 	
 }

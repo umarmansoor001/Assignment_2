@@ -19,4 +19,8 @@ public class Airline {
 	{
 		return this.FS;
 	}
+	public Airplane get_plane()
+	{
+		return plane;
+	}
 }
