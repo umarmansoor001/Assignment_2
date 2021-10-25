@@ -64,16 +64,17 @@ public class Airplane {
 			}
 		}
 	}
-	boolean reserve_seat(int choice)
+	boolean reserve_seat(String P_class)
 	{
 		if(this.available_seats>0)
 		{
-			if(choice==1)
+			if(P_class=="Economy Class")
 				this.economyclass_seats--;
-			else if(choice==2)
+			else if(P_class=="Bussiness Class")
 				this.bussinessclass_seats--;
-			else if(choice==3)
+			else if(P_class=="First Class")
 				this.firstclass_seats--;
+			
 			this.available_seats--;
 		}
 		//If All seats are reserved then return false

@@ -80,13 +80,5 @@ public class Flight_Schedule {
 				Respective_flights.add(a_flight);
 		}
 	}
-	void view_FlightSchedule()
-	{
-		//It will print All Flights data
-		for(int i=0;i<flight_sch.length();i++)
-		{
-			System.out.println(flight_sch.get(i));
-		}
-		}
 
 }

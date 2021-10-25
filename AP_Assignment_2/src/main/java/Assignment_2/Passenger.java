@@ -52,14 +52,24 @@ public class Passenger {
 	{
 		return passenger_flight;
 	}
-	public void display()
-	{
-		System.out.print("Name "+this.Name);
-		System.out.println("Gender "+this.Gender);
-		System.out.println("Age "+this.Age);
-		System.out.println("Address "+this.Address);
-		System.out.println("Passport "+this.passport_no);
-		this.passenger_flight.display();
+	public String getName() {
+		return this.Name;
+	}
+	//Setter
+	public String getAddress() {
+		return Address;
+	}
+	//Setter
+	public char getGender() {
+		return Gender;
+	}	
+	//Setter
+	public int getAge() {
+		return Age;
+	}
+	//Setter
+	public int getPassport_no() {
+		return passport_no;
 	}
 	
 }

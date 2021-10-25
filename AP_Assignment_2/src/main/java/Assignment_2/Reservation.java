@@ -4,11 +4,9 @@ import java.io.*;
 import java.util.*;
 
 public class Reservation {
-	private int no_of_passengers;
 	//Composition between Reservation
 	//Aggregation passenger
 	private Passenger passenger;
-	private final list<String> passengers_details=new list<String>();//use this list to store data in and write this data from file
 	private final Airline AL;
 	
 	//Parameterized constructor
@@ -31,9 +29,13 @@ public class Reservation {
 	}
 	boolean book_seat()
 	{
+		//Giving plane code from Flight class to Airplane class
 		this.AL.get_plane().set_plane(this.passenger.get_Pflight().getPlane_code());
 		//if(AL.get_plane().reserve_seat()));
-		return true;
+		if(AL.get_plane().reserve_seat(this.passenger.get_Pflight().getPlane_class()))
+			return true;
+		else 
+			return false;
 	}
 	void update_database()
 	{
@@ -41,13 +43,34 @@ public class Reservation {
 		
 		try {
 			FW = new FileWriter("C:\\Users\\umarm\\git\\repository3\\AP_Assignment_2\\src\\main\\resources\\Reservation.txt");
-			BufferedWriter BW=new BufferedWriter(FW);
-			String passenger_data=null;
-			
-			
+
+			list<String> passenger_data=new list<String>();
+			passenger_data.add(this.passenger.getName());
+			passenger_data.add(Integer.toString(this.passenger.getPassport_no()));
+			passenger_data.add(this.passenger.getAddress());
+			passenger_data.add(Integer.toString(this.passenger.getAge()));
+			passenger_data.add(Character.toString(this.passenger.getGender()));
+			passenger_data.add(this.passenger.get_Pflight().getPlane_code());
+			passenger_data.add(this.passenger.get_Pflight().getPlane_class());
+			passenger_data.add(this.passenger.get_Pflight().get_des());
+			passenger_data.add(this.passenger.get_Pflight().get_org());
+			passenger_data.add(this.passenger.get_Pflight().get_deptime());
+			passenger_data.add(Integer.toString(this.passenger.get_Pflight().get_date()));
+			String aline=null;
+			//Now writing in file
+			for(int i=0; i<passenger_data.length(); ++i)
+			{	
+				aline=passenger_data.get(i);
+				FW.write(aline);
+				FW.write(",");
+				
+				
+			}
+			FW.write("\n");
+			FW.close();
 		}
 		catch(Exception e) {
-			
+			//System.out.println("An Error occured.");
 		}
 	}
 	

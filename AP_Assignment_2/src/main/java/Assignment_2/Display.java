@@ -108,8 +108,8 @@ public class Display  {
 		final int First_class=8000;
 		String[] parts=flight.split(",");
 		System.out.println("Enter 1 For Economy Class   : Fare RS."+Integer.parseInt(parts[7]));//in 7th index fare is stored
-		System.out.println("Enter 2 For Bussiness Class : Fare RS."+Integer.parseInt(parts[7])+Bussiness_class);//in 7th index fare is stored
-		System.out.println("Enter 3 For First Class     : Fare RS."+Integer.parseInt(parts[7])+First_class);//in 7th index fare is stored
+		System.out.println("Enter 2 For Bussiness Class : Fare RS."+(Integer.parseInt(parts[7])+Bussiness_class));//in 7th index fare is stored
+		System.out.println("Enter 3 For First Class     : Fare RS."+(Integer.parseInt(parts[7])+First_class));//in 7th index fare is stored
 		System.out.println("Enter Your Choice:- ");
 		int choice=0;
 		Scanner input=new Scanner(System.in);
@@ -207,4 +207,16 @@ public class Display  {
 		P.setPassport_no(p_no);
 	}
 
+	void display_ticket(Passenger P)
+	{
+		System.out.println("#####################################################");
+		System.out.println("##                                                 ##");
+		System.out.println("##         "+"F L I G H T   T I C K E T"+"              ##");
+		System.out.println("##                                                 ##");
+		System.out.println("#####################################################");
+		System.out.println("               "+P.getName()+"                   ");
+		System.out.println("               "+P.getPassport_no()+"	         ");
+		System.out.println("               "+P.get_Pflight().get_deptime()+"          ");
+		System.out.println("#####################################################");
+	}
 }

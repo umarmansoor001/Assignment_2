@@ -11,6 +11,7 @@ public class Flight  {
 	private int date;
 	private int duration;
 	private String Flight_code;
+	private int Fare;
 	//Aggregation
 	public Passenger passenger;
 	//Setter
@@ -46,11 +47,30 @@ public class Flight  {
 	public String getPlane_code() {
 		return plane_code;
 	}
+	public String getPlane_class() {
+		return plane_class;
+	}
+	public String get_des() {
+		return destination;
+	}
+	public String get_org() {
+		return Origin;
+	}
+	public int get_date() {
+		return date;
+	}
+	public String get_deptime() {
+		return dep_time;
+	}
 	public void setDuration(int duration) {
 		this.duration=duration;
 	}
-	public void display()
+	public void set_fare(int fare)
 	{
-		System.out.println(destination+" "+Origin+" "+duration+" "+date);
+		this.Fare=(fare);
+	}
+	public int get_fare()
+	{
+		return this.Fare;
 	}
 }

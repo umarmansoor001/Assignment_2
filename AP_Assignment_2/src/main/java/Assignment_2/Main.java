@@ -24,10 +24,16 @@ public class Main {
 			int choice=(Display.take_desiredflight(desired_Flights));
 			Choosen_flight=desired_Flights.get(choice-1);
 			//Setting plane class for passenger
-			R.get_passenger().get_Pflight().setPlane_class(Display.take_planetype(Choosen_flight));
+			int plane_type=Display.take_planetype(Choosen_flight);
+			R.get_passenger().get_Pflight().setPlane_class(plane_type);
+			String[] parts=Choosen_flight.split(",");
 			
-			//for(int i=0; i<desired_Flights.length(); ++i)
-				//System.out.println(desired_Flights.get(i));
+			if(plane_type==1)
+				R.get_passenger().get_Pflight().set_fare(Integer.parseInt(parts[7]));
+			else if(plane_type==2)
+				R.get_passenger().get_Pflight().set_fare(Integer.parseInt(parts[7])+5000);
+			else if(plane_type==3)
+				R.get_passenger().get_Pflight().set_fare(Integer.parseInt(parts[7])+8000);
 		}
 		else//If flight not found then again take destination and origin 
 		{
@@ -64,9 +70,8 @@ public class Main {
 		P.set_flight(booking_operation(R.get_AL(),R));
 		take_passenger_data(P);
 		R.set_Passenger(P);
-		//Giving plane code from Flight class to Airplane class
-		
-		P.display();
+		R.update_database();
+		d.display_ticket(P);
 	}
 	
 }
